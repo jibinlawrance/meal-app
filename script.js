@@ -36,7 +36,7 @@ function renderResults(results){
 
     let content = ''
     for(let key of results){
-        content = content+`<li>${key.strMeal}</li>` ;
+        content = content+`<li>${key.strMeal}</li>`;
     }
 
     searchWrapper.classList.add('show');
