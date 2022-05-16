@@ -2,8 +2,31 @@
 
 main { max-width: 500px; margin: 50px auto; font-size: 1.3rem; }
 input { outline: none; width: 100%; border: none; padding: 10px; border-radius: 5px; font-size: 1.3rem; background-color: #fff; box-shadow: 0px 1px 4px rgba(0,0,0,0.1); }
-ul { display: none; border-radius: 5px; overflow: hidden; margin-top: -10px; }
+ul { display: none; }
 ul li { background-color: #fff; list-style: none; padding: 10px; border-width: 0px 0px 1px; border-style: solid; border-color: #ddd; }
 ul li:last-child { border-width: 0px; }
+ul li:hover { background-color: #eee; cursor: pointer; }
+
+#result { max-height: 500px; overflow: hidden; overflow-y: scroll; border-radius: 5px; margin-top: -10px; padding-top: 10px; background-color: #fff; }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+  margin: 10px 0px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 .show ul { display: block; }
