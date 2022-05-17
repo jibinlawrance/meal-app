@@ -10,17 +10,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main id="wrapper">
-        <div class="input-wrap">
-            <input type="text" id="search" placeholder="Type to search" autocomplete="off">
-            <i class="fa fa-search" id="search-meal"></i>
-        </div>
-        <div id="result">
-        </div>
-        <div class="meal-wrapper">
+    <main class="container">
+        <section id="search-wrapper">
+            <h1 class="text-center text-muted mb-4">Search The Meal</h1>
+            <div class="input-wrap">
+                <input type="text" id="search" placeholder="Type to search" autocomplete="off">
+                <i class="fa fa-search" id="search-meal"></i>
+            </div>
+            <div id="result">
+            </div>
+            <div class="meal-wrapper">
 
-        </div>
+            </div>
+        </section>
+        <section class="px-5" id="favourites-wrapper">
+            <h1 class="text-center text-muted mb-4">My Favourite Meals</h1>
+            <ul class="list-group">
+                <!-- <li class="list-group-item">An item</li> -->
+              </ul>
+        </section>
     </main>
     <script src="./script.js"></script>
 </body>
-</html>`
+</html>

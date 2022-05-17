@@ -1,16 +1,18 @@
 * { margin: 0px; padding: 0px; box-sizing: border-box; font-family: sans-serif; }
 body { background-color: #6d7b98; }
-main { max-width: 500px; margin: 50px auto; font-size: 1.3rem; }
-.input-wrap { width: 100%; display: flex; align-items: center; padding: 10px; border-radius: 5px; background-color: #fff; box-shadow: 0px 1px 4px rgba(0,0,0,0.1); }
-input { outline: none; width: 100%; border: none; font-size: 1.3rem; background-color: #fff; }
-.input-wrap i { background-color: #fff; cursor: pointer; }
-ul { display: none; margin: 0px; padding: 0px; }
-ul li { background-color: #fff; list-style: none; padding: 10px; border-width: 0px 0px 1px; border-style: solid; border-color: #ddd; }
-ul li:last-child { border-width: 0px; }
-ul li:hover { background-color: #eee; cursor: pointer; }
-.no-result-ul li:hover { background-color: #fff; cursor: default; }
+main { display: flex; }
+section { margin: 50px 0px; font-size: 1.3rem; width: 50%; }
 
-#result { max-height: 500px; overflow: hidden; overflow-y: scroll; border-radius: 5px; margin-top: -10px; padding-top: 10px; background-color: #fff; }
+#search-wrapper .input-wrap { width: 100%; display: flex; align-items: center; padding: 10px; border-radius: 5px; background-color: #fff; box-shadow: 0px 1px 4px rgba(0,0,0,0.1); }
+#search-wrapper input { outline: none; width: 100%; border: none; font-size: 1.3rem; background-color: #fff; }
+#search-wrapper .input-wrap i { background-color: #fff; cursor: pointer; }
+ul { display: none; margin: 0px; padding: 0px; }
+#search-wrapper ul li { background-color: #fff; list-style: none; padding: 10px; border-width: 0px 0px 1px; border-style: solid; border-color: #ddd; }
+#search-wrapper ul li:last-child { border-width: 0px; }
+#search-wrapper ul li:hover { background-color: #eee; cursor: pointer; }
+#search-wrapper .no-result-ul li:hover { background-color: #fff; cursor: default; }
+
+#search-wrapper #result { max-height: 500px; overflow: hidden; overflow-y: scroll; border-radius: 5px; margin-top: -10px; padding-top: 10px; background-color: #fff; }
 
 .show ul { display: block; }
 

@@ -1,12 +1,13 @@
 let searchList = [ 'Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', 'Australia' ];
 
 const searchInput = document.getElementById('search');
-const searchWrapper = document.getElementById('wrapper');
+const searchWrapper = document.getElementById('search-wrapper');
 const resultWrapper = document.getElementById('result');
 const searchMeal = document.getElementById('search-meal');
 const mealWrapper = document.querySelector('.meal-wrapper');
 let resultUl;
 let mealName;
+let favMealList = [];
 
 searchInput.addEventListener('keyup', () => {
     let results = [];
@@ -38,19 +39,55 @@ searchMeal.addEventListener('click', (e)=>{
         .then(res=> res.json())
         .then(data=>{
             // console.log(data.meals[0]);
-            mealWrapper.innerHTML = `<div class="card my-3">
+            mealWrapper.innerHTML = `<div class="card my-3" style="width: 20rem;">
                 <img src="${data.meals[0].strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h4 class="card-title mb-0">${data.meals[0].strMeal}</h4>
                 </div>
                 <div class="card-body border-top">
-                  <button class="btn btn-primary text-decoration-none">Add to favourites</button>
+                  <button onclick="addFav(this)" class="btn btn-primary text-decoration-none fav-btn" data-meal-name="${data.meals[0].strMeal}" id="${data.meals[0].idMeal}">Add to favourites</button>
                   <button class="btn btn-primary text-decoration-none">View Recipe</button>
                 </div>
             </div>`
         })
     }
 });
+
+function addFav(favBtn){
+    let mealName = favBtn.getAttribute("data-meal-name");
+    if(favMealList.length == 0){
+        favMealList.push(mealName);
+    
+        let li = document.createElement("li");
+        li.innerText = mealName;
+        li.classList.add('list-group-item');
+    
+        document.querySelector('.list-group').appendChild(li);
+
+        favBtn.disabled = true;
+
+    }else{
+        let containsName = false;
+        for(let i of favMealList){
+            if(i === mealName){
+                containsName = true;
+                alert('Already Added!');
+                break;
+            }
+        }
+        if(!containsName){
+            favMealList.push(mealName);
+    
+            let li = document.createElement("li");
+            li.innerText = mealName;
+            li.classList.add('list-group-item');
+        
+            document.querySelector('.list-group').appendChild(li);
+            
+            favBtn.disabled = true;         
+        };
+    }
+}
 
 function addClickOnLi(resultUl){
     for(let i = 0; i < resultUl.children.length; i++){
