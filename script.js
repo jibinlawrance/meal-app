@@ -3,9 +3,9 @@ let searchList = [ 'Asia', 'Africa', 'North America', 'South America', 'Antarcti
 const searchInput = document.getElementById('search');
 const searchWrapper = document.getElementById('wrapper');
 const resultWrapper = document.getElementById('result');
+let resultUl;
 
-searchInput.addEventListener('keyup', (e) => {
-    console.log('pressed');
+searchInput.addEventListener('keyup', () => {
     let results = [];
     let input = searchInput.value.trim();
 
@@ -18,7 +18,8 @@ searchInput.addEventListener('keyup', (e) => {
                 renderResults(data.meals);
             }else{
                 console.log('No results');
-                return searchWrapper.classList.remove('show');
+                resultWrapper.innerHTML = `<ul class="no-result-ul"><li>No results</li></ul>`
+                // return searchWrapper.classList.remove('show');
             };
         })
     }else{
@@ -27,10 +28,15 @@ searchInput.addEventListener('keyup', (e) => {
 
 });
 
-resultWrapper.addEventListener('click',(e)=>{
-    searchInput.value = e.target.innerText;
-    searchWrapper.classList.remove('show');
-})
+
+function addClick(resultUl){
+    for(let i = 0; i < resultUl.children.length; i++){
+        resultUl.children[i].addEventListener('click', (e)=>{
+            searchInput.value = e.target.innerText;
+            searchWrapper.classList.remove('show');
+        });
+    }
+}
 
 function renderResults(results){
 
@@ -41,4 +47,7 @@ function renderResults(results){
 
     searchWrapper.classList.add('show');
     resultWrapper.innerHTML = `<ul>${content}</ul>`
+
+    resultUl = document.querySelector('#result ul')
+    addClick(resultUl);
 }

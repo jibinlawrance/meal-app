@@ -6,8 +6,11 @@ ul { display: none; }
 ul li { background-color: #fff; list-style: none; padding: 10px; border-width: 0px 0px 1px; border-style: solid; border-color: #ddd; }
 ul li:last-child { border-width: 0px; }
 ul li:hover { background-color: #eee; cursor: pointer; }
+.no-result-ul li:hover { background-color: #fff; cursor: default; }
 
 #result { max-height: 500px; overflow: hidden; overflow-y: scroll; border-radius: 5px; margin-top: -10px; padding-top: 10px; background-color: #fff; }
+
+.show ul { display: block; }
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -28,5 +31,3 @@ ul li:hover { background-color: #eee; cursor: pointer; }
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
-
-.show ul { display: block; }
