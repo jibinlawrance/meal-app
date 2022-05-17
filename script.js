@@ -38,7 +38,16 @@ searchMeal.addEventListener('click', (e)=>{
         .then(res=> res.json())
         .then(data=>{
             // console.log(data.meals[0]);
-            mealWrapper.innerHTML = `<h2>${data.meals[0].strMeal}</h2> <img src="${data.meals[0].strMealThumb}" alt="">`
+            mealWrapper.innerHTML = `<div class="card my-3">
+                <img src="${data.meals[0].strMealThumb}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h4 class="card-title mb-0">${data.meals[0].strMeal}</h4>
+                </div>
+                <div class="card-body border-top">
+                  <button class="btn btn-primary text-decoration-none">Add to favourites</button>
+                  <button class="btn btn-primary text-decoration-none">View Recipe</button>
+                </div>
+            </div>`
         })
     }
 });
