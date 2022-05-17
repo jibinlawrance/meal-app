@@ -5,12 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Complete Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main id="wrapper">
-        <input type="text" id="search" placeholder="Type to search" autocomplete="off">
+        <div class="input-wrap">
+            <input type="text" id="search" placeholder="Type to search" autocomplete="off">
+            <i class="fa fa-search" id="search-meal"></i>
+        </div>
         <div id="result">
+        </div>
+        <div class="meal-wrapper">
+            
         </div>
     </main>
     <script src="./script.js"></script>
