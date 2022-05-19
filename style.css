@@ -1,4 +1,5 @@
-* { margin: 0px; padding: 0px; box-sizing: border-box; font-family: sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* { margin: 0px; padding: 0px; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { background-color: #6d7b98; }
 main { display: flex; }
 section { margin: 50px 0px; font-size: 1.3rem; width: 50%; }

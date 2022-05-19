@@ -39,14 +39,14 @@ searchMeal.addEventListener('click', (e)=>{
         .then(res=> res.json())
         .then(data=>{
             // console.log(data.meals[0]);
-            mealWrapper.innerHTML = `<div class="card my-3" style="width: 20rem;">
+            mealWrapper.innerHTML = `<div class="card my-3" style="width: 22rem;">
                 <img src="${data.meals[0].strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h4 class="card-title mb-0">${data.meals[0].strMeal}</h4>
                 </div>
                 <div class="card-body border-top">
-                  <button onclick="addFav(this)" class="btn btn-primary text-decoration-none fav-btn" data-meal-name="${data.meals[0].strMeal}" id="${data.meals[0].idMeal}">Add to favourites</button>
-                  <button class="btn btn-primary text-decoration-none">View Recipe</button>
+                  <button onclick="addFav(this)" class="btn btn-primary fav-btn" data-meal-name="${data.meals[0].strMeal}" id="${data.meals[0].idMeal}">Add to favourites</button>
+                  <a href="./meal-detail-page.html?${data.meals[0].idMeal}" class="btn btn-primary text-decoration-none">View Recipe</a>
                 </div>
             </div>`
         })
