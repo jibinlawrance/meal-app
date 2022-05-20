@@ -1,5 +1,3 @@
-let searchList = [ 'Asia', 'Africa', 'North America', 'South America', 'Antarctica', 'Europe', 'Australia' ];
-
 const searchInput = document.getElementById('search');
 const searchWrapper = document.getElementById('search-wrapper');
 const resultWrapper = document.getElementById('result');
@@ -7,10 +5,17 @@ const searchMeal = document.getElementById('search-meal');
 const mealWrapper = document.querySelector('.meal-wrapper');
 let resultUl;
 let mealName;
-let favMealList = [];
+let favMealList;
+let storedFavList = window.localStorage.getItem('fav');
+
+// check if there is array stored in local storage
+if(storedFavList){
+    favMealList = JSON.parse(storedFavList);
+}else{
+    favMealList = [];
+}
 
 searchInput.addEventListener('keyup', () => {
-    let results = [];
     let input = searchInput.value.trim();
     mealName = '';
     mealWrapper.innerHTML = '';
@@ -58,11 +63,8 @@ function addFav(favBtn){
     if(favMealList.length == 0){
         favMealList.push(mealName);
     
-        let li = document.createElement("li");
-        li.innerText = mealName;
-        li.classList.add('list-group-item');
-    
-        document.querySelector('.list-group').appendChild(li);
+        // Add to local storage
+        window.localStorage.setItem('fav', JSON.stringify(favMealList));
 
         favBtn.disabled = true;
 
@@ -77,12 +79,7 @@ function addFav(favBtn){
         }
         if(!containsName){
             favMealList.push(mealName);
-    
-            let li = document.createElement("li");
-            li.innerText = mealName;
-            li.classList.add('list-group-item');
-        
-            document.querySelector('.list-group').appendChild(li);
+            window.localStorage.setItem('fav', JSON.stringify(favMealList));
             
             favBtn.disabled = true;         
         };

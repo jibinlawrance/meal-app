@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 * { margin: 0px; padding: 0px; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { background-color: #6d7b98; }
-main { display: flex; }
-section { margin: 50px 0px; font-size: 1.3rem; width: 50%; }
+
+section { margin: 50px auto; font-size: 1.3rem; max-width: 600px; }
 
 #search-wrapper .input-wrap { width: 100%; display: flex; align-items: center; padding: 10px; border-radius: 5px; background-color: #fff; box-shadow: 0px 1px 4px rgba(0,0,0,0.1); }
 #search-wrapper input { outline: none; width: 100%; border: none; font-size: 1.3rem; background-color: #fff; }
