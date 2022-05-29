@@ -14,3 +14,5 @@
   - Displays a list of all the favourite meals.
   - This list is persistent (will have the same number of meals before and after closing the browser/refreshing the browser).
   - Remove from favourites button(trash icon): Each meal has a delete button, clicking on which should will remove that meal from the list.
+
+You can find the website at [https://jibinlawrance.github.io/meal-app/](https://jibinlawrance.github.io/meal-app/)
