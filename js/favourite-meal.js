@@ -1,5 +1,6 @@
 const favUl = document.querySelector('.list-group');
 let favMealList = [];
+// store the string from the local storage
 let storedFavList = window.localStorage.getItem('fav');
 
 updateMealsList(storedFavList);

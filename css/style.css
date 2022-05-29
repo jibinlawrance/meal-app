@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 * { margin: 0px; padding: 0px; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { 
-  /* background-color: #6d7b98; */
   background-color: #A1AFCE;
 }
 
@@ -24,23 +23,23 @@ ul { display: none; margin: 0px; padding: 0px; }
 .meal-wrapper h2 { margin: 30px 0px 20px; }
 .meal-wrapper img { max-width: 100%; }
 
-::-webkit-scrollbar {
+#result::-webkit-scrollbar {
   width: 8px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+#result::-webkit-scrollbar-track {
   background: #fff;
   margin: 10px 0px;
 }
  
 /* Handle */
-::-webkit-scrollbar-thumb {
+#result::-webkit-scrollbar-thumb {
   background: #888; 
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+#result::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
 
