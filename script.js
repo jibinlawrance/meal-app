@@ -60,8 +60,10 @@ searchMeal.addEventListener('click', (e)=>{
 
 function addFav(favBtn){
     let mealName = favBtn.getAttribute("data-meal-name");
+    let mealId = favBtn.getAttribute("id");
     if(favMealList.length == 0){
-        favMealList.push(mealName);
+        let meal = { "mealName": `${mealName}` , "mealId": `${mealId}` }
+        favMealList.push(meal);
     
         // Add to local storage
         window.localStorage.setItem('fav', JSON.stringify(favMealList));
@@ -70,15 +72,18 @@ function addFav(favBtn){
 
     }else{
         let containsName = false;
-        for(let i of favMealList){
-            if(i === mealName){
+        for(let i=0; i < favMealList.length; i++){
+            if(favMealList[i].mealName === mealName){
                 containsName = true;
                 alert('Already Added!');
                 break;
             }
         }
         if(!containsName){
-            favMealList.push(mealName);
+            let meal = { "mealName": `${mealName}` , "mealId": `${mealId}` }
+            favMealList.push(meal);
+
+            // Add to local storage
             window.localStorage.setItem('fav', JSON.stringify(favMealList));
             
             favBtn.disabled = true;         

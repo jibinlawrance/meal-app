@@ -40,3 +40,5 @@ ul { display: none; margin: 0px; padding: 0px; }
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+.delete-icon { cursor: pointer; }
