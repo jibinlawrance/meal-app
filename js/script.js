@@ -44,14 +44,14 @@ searchMeal.addEventListener('click', (e)=>{
         .then(res=> res.json())
         .then(data=>{
             // console.log(data.meals[0]);
-            mealWrapper.innerHTML = `<div class="card my-3" style="width: 22rem;">
+            mealWrapper.innerHTML = `<div class="card my-3 mx-auto" style="max-width: 22rem;">
                 <img src="${data.meals[0].strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h4 class="card-title mb-0">${data.meals[0].strMeal}</h4>
                 </div>
                 <div class="card-body border-top">
-                  <button onclick="addFav(this)" class="btn btn-primary fav-btn" data-meal-name="${data.meals[0].strMeal}" id="${data.meals[0].idMeal}">Add to favourites</button>
-                  <a href="./meal-detail-page.html?${data.meals[0].idMeal}" class="btn btn-primary text-decoration-none">View Recipe</a>
+                  <button onclick="addFav(this)" class="btn btn-primary fav-btn mb-2 mb-sm-0" data-meal-name="${data.meals[0].strMeal}" id="${data.meals[0].idMeal}">Add to favourites</button>
+                  <a href="./meal-detail-page.html?${data.meals[0].idMeal}" class="btn btn-primary text-decoration-none mb-2 mb-sm-0">View Recipe</a>
                 </div>
             </div>`
         })
@@ -70,6 +70,8 @@ function addFav(favBtn){
 
         favBtn.disabled = true;
 
+        alert('Added to Favourites!');
+
     }else{
         let containsName = false;
         for(let i=0; i < favMealList.length; i++){
@@ -86,7 +88,9 @@ function addFav(favBtn){
             // Add to local storage
             window.localStorage.setItem('fav', JSON.stringify(favMealList));
             
-            favBtn.disabled = true;         
+            favBtn.disabled = true;
+            
+            alert('Added to Favourites!');
         };
     }
 }
