@@ -15,7 +15,7 @@ function updateMealsList(){
 
         for(let meal of favMealList){
             let li = document.createElement("li");
-            li.innerHTML = `<a href="./meal-detail-page.html?${meal.mealId}">${meal.mealName}</a> <i id="${meal.mealId}" class="fa fa-trash-alt delete-icon"></i>`;
+            li.innerHTML = `<a href="./meal-detail-page.html?${meal.mealId}" class="text-decoration-none">${meal.mealName}</a> <i id="${meal.mealId}" class="fa fa-trash-alt delete-icon"></i>`;
             li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
         
             favUl.appendChild(li);
