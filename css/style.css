@@ -43,4 +43,6 @@ ul { display: none; margin: 0px; padding: 0px; }
   background: #555; 
 }
 
+.home-img { width: 350px; height: 350px; background: url('../images/loading.gif') 50% no-repeat; }
+
 .delete-icon { cursor: pointer; }

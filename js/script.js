@@ -97,7 +97,7 @@ function displayMeal(){
     .then(data=>{
             
         mealWrapper.innerHTML = `<div class="card my-3 mx-auto" style="max-width: 22rem;">
-            <img src="${data.meals[0].strMealThumb}" class="card-img-top" alt="...">
+            <img src="${data.meals[0].strMealThumb}" class="card-img-top home-img" alt="...">
             <div class="card-body">
               <h4 class="card-title mb-0">${data.meals[0].strMeal}</h4>
             </div>
@@ -106,6 +106,14 @@ function displayMeal(){
               <a href="./meal-detail-page.html?${data.meals[0].idMeal}" class="btn btn-primary text-decoration-none mb-2 mb-sm-0">View Recipe</a>
             </div>
         </div>`
+
+        // add image loading
+        var image = document.images[0];
+        var downloadingImage = new Image();
+        downloadingImage.onload = function(){
+            image.src = this.src;   
+        };
+        downloadingImage.src = data.meals[0].strMealThumb;        
     });
 }
 
