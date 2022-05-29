@@ -1,7 +1,6 @@
 const searchInput = document.getElementById('search');
 const searchWrapper = document.getElementById('search-wrapper');
 const resultWrapper = document.getElementById('result');
-const searchMeal = document.getElementById('search-meal');
 const mealWrapper = document.querySelector('.meal-wrapper');
 
 let resultUl;
@@ -45,27 +44,6 @@ searchInput.addEventListener('keyup', () => {
 
 });
 
-searchMeal.addEventListener('click', ()=>{
-    // check whether the meal name has a value
-    if(mealName){
-        // fetch the meal details specific to the meal name
-        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
-        .then(res=> res.json())
-        .then(data=>{
-            
-            mealWrapper.innerHTML = `<div class="card my-3 mx-auto" style="max-width: 22rem;">
-                <img src="${data.meals[0].strMealThumb}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h4 class="card-title mb-0">${data.meals[0].strMeal}</h4>
-                </div>
-                <div class="card-body border-top">
-                  <button onclick="addFav(this)" class="btn btn-primary fav-btn mb-2 mb-sm-0" data-meal-name="${data.meals[0].strMeal}" id="${data.meals[0].idMeal}">Add to favourites</button>
-                  <a href="./meal-detail-page.html?${data.meals[0].idMeal}" class="btn btn-primary text-decoration-none mb-2 mb-sm-0">View Recipe</a>
-                </div>
-            </div>`
-        })
-    }
-});
 
 function addFav(favBtn){
     // store the meal name in a variable
@@ -112,6 +90,25 @@ function addFav(favBtn){
     }
 }
 
+function displayMeal(){
+    // fetch the meal details specific to the meal name
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
+    .then(res=> res.json())
+    .then(data=>{
+            
+        mealWrapper.innerHTML = `<div class="card my-3 mx-auto" style="max-width: 22rem;">
+            <img src="${data.meals[0].strMealThumb}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title mb-0">${data.meals[0].strMeal}</h4>
+            </div>
+            <div class="card-body border-top">
+              <button onclick="addFav(this)" class="btn btn-primary fav-btn mb-2 mb-sm-0" data-meal-name="${data.meals[0].strMeal}" id="${data.meals[0].idMeal}">Add to favourites</button>
+              <a href="./meal-detail-page.html?${data.meals[0].idMeal}" class="btn btn-primary text-decoration-none mb-2 mb-sm-0">View Recipe</a>
+            </div>
+        </div>`
+    });
+}
+
 function addClickOnLi(resultUl){
     // add click event on all the list item 
     for(let i = 0; i < resultUl.children.length; i++){
@@ -121,6 +118,8 @@ function addClickOnLi(resultUl){
             // update the meal name variable with the valid meal name
             mealName = searchInput.value;
             searchWrapper.classList.remove('show');
+
+            displayMeal();
         });
     }
 }

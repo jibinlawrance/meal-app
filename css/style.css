@@ -8,7 +8,7 @@ section { margin: 50px auto; font-size: 1.3rem; max-width: 600px; }
 
 #search-wrapper .input-wrap { width: 100%; display: flex; align-items: center; padding: 10px; border-radius: 5px; background-color: #fff; box-shadow: 0px 1px 4px rgba(0,0,0,0.1); }
 #search-wrapper input { outline: none; width: 100%; border: none; font-size: 1.3rem; background-color: #fff; }
-#search-wrapper .input-wrap i { background-color: #fff; cursor: pointer; }
+#search-wrapper .input-wrap i { background-color: #fff; }
 ul { display: none; margin: 0px; padding: 0px; }
 #search-wrapper ul li { background-color: #fff; list-style: none; padding: 10px; border-width: 0px 0px 1px; border-style: solid; border-color: #ddd; }
 #search-wrapper ul li:last-child { border-width: 0px; }
